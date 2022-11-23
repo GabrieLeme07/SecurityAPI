@@ -21,6 +21,7 @@ namespace SecurityAPI.Controllers
 
         [HttpGet(Name = "GetWeatherForecast")]
         [RequestLimit("Test-Action", NoOfRequest = 5, Seconds = 10)]
+        [RequestCheck]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
